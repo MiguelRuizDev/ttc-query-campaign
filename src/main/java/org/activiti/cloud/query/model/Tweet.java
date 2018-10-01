@@ -55,4 +55,6 @@ public class Tweet implements Serializable {
                 ", timestamp=" + timestamp +
                 '}';
     }
+
+    
 }
