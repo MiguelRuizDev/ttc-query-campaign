@@ -11,8 +11,9 @@ import org.springframework.data.repository.query.Param;
 public interface ExtendedVariableRepository extends VariableRepository {
 
     @Query("select v from Variable v where v.name= 'matched' " +
-                     "and v.processInstance.status='COMPLETED' "+
+                     "and v.processInstance.status='COMPLETED' " +
                      "and v.processInstance.businessKey= :campaign " +
+                     "and v.value='true' " +
                      "order by v.processInstance.lastModified desc")
     List<VariableEntity> findAllCompletedAndMatched(@Param("campaign") String campaign);
 
